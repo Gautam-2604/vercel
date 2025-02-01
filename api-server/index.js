@@ -6,15 +6,15 @@ const app = express()
 const PORT = 9000
 
 const config = {
-    CLUSTER:'arn:aws:ecs:eu-north-1:841162693180:cluster/buildercluster',
-    TASK:'arn:aws:ecs:eu-north-1:841162693180:task-definition/builder-task'
+    CLUSTER:process.env.CLUSTER,
+    TASK:process.env.TASK
 }
 
 const ecsClient = new ECSClient({
     region:'eu-north-1',
     credentials:{
-        accessKeyId:'AKIA4HWJUDI6MAO5S4HB',
-        secretAccessKey:'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'
+        accessKeyId:process.env.ACCESSKEY,
+        secretAccessKey:process.env.SECRET
     }
 })
 
